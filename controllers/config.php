@@ -9,7 +9,7 @@ if($_SERVER["HTTP_HOST"] == "localhost"){
 
 } else {
 
-    $host = "mysql.railway.internal";
+    $host = "centerbeam.proxy.rlwy.net";
     $username = "root";
     $password = "OBuRwWSGGKKUFGvbcgANJxBUaaJzIoxL";
     $db = "railway";
