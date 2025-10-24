@@ -13,9 +13,10 @@ if($_SERVER["HTTP_HOST"] == "localhost"){
     $username = "root";
     $password = "OBuRwWSGGKKUFGvbcgANJxBUaaJzIoxL";
     $db = "railway";
+    $port = 58857;
 
 }
 
-$conn = new mysqli($host, $username, $password, $db);
+$conn = new mysqli($host, $username, $password, $db, $port);
 
 ?>
