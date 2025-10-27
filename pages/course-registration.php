@@ -124,7 +124,7 @@ require_once "controllers/user.php";
                                                 <?php } ?>
                                             </tbody>
                                         </table>
-                                        <?php if($active_count > 0 && $active_courses->num_rows < 1) {?>
+                                        <?php if($active_courses->num_rows < 1) {?>
                                             <div style="display: flex; justify-content: center;">
                                                 <button type="button" class="btn btn-primary waves-effect waves-light" onclick="registerCourse(<?= $user_id ?>)">Register</button>
                                             </div>

@@ -17,6 +17,6 @@ if($_SERVER["HTTP_HOST"] == "localhost"){
 
 }
 
-$conn = new mysqli($host, $username, $password, $db, $port);
+$conn = new mysqli($host, $username, $password, $db);
 
 ?>

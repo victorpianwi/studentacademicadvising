@@ -105,27 +105,36 @@ require_once "controllers/user.php";
                                                                     $total_result = 0;
 
                                                                     foreach($first_level_first_semester as $semester){
-                                                                        $total_credit += floatval($semester["credit"]);
+
+                                                                        $course_id = $semester["course_id"];
+
+                                                                        $sql = "SELECT * FROM courses WHERE course_id = ? LIMIT 1";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bind_param("s", $course_id);
+                                                                        $stmt->execute();
+                                                                        $course = $stmt->get_result()->fetch_assoc();
+
+                                                                        $total_credit += floatval($course["credit"]);
 
                                                                         $result = $semester["result"];
 
                                                                         if($result == "A"){
-                                                                            $product = floatval($semester["credit"]) * 5;
+                                                                            $product = floatval($course["credit"]) * 5;
                                                                             $total_result += $product;
                                                                         } else if($result == "B"){
-                                                                            $product = floatval($semester["credit"]) * 4;
+                                                                            $product = floatval($course["credit"]) * 4;
                                                                             $total_result += $product;
                                                                         } else if($result == "C"){
-                                                                            $product = floatval($semester["credit"]) * 3;
+                                                                            $product = floatval($course["credit"]) * 3;
                                                                             $total_result += $product;
                                                                         } else if($result == "D"){
-                                                                            $product = floatval($semester["credit"]) * 2;
+                                                                            $product = floatval($course["credit"]) * 2;
                                                                             $total_result += $product;
                                                                         } else if($result == "E"){
-                                                                            $product = floatval($semester["credit"]) * 1;
+                                                                            $product = floatval($course["credit"]) * 1;
                                                                             $total_result += $product;
                                                                         } else if($result == "F"){
-                                                                            $product = floatval($semester["credit"]) * 0;
+                                                                            $product = floatval($course["credit"]) * 0;
                                                                             $total_result += $product;
                                                                         }
                                                                     }
@@ -150,27 +159,36 @@ require_once "controllers/user.php";
                                                                     $total_result = 0;
 
                                                                     foreach($first_level_second_semester as $semester){
-                                                                        $total_credit += floatval($semester["credit"]);
+
+                                                                        $course_id = $semester["course_id"];
+
+                                                                        $sql = "SELECT * FROM courses WHERE course_id = ? LIMIT 1";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bind_param("s", $course_id);
+                                                                        $stmt->execute();
+                                                                        $course = $stmt->get_result()->fetch_assoc();
+
+                                                                        $total_credit += floatval($course["credit"]);
 
                                                                         $result = $semester["result"];
 
                                                                         if($result == "A"){
-                                                                            $product = floatval($semester["credit"]) * 5;
+                                                                            $product = floatval($course["credit"]) * 5;
                                                                             $total_result += $product;
                                                                         } else if($result == "B"){
-                                                                            $product = floatval($semester["credit"]) * 4;
+                                                                            $product = floatval($course["credit"]) * 4;
                                                                             $total_result += $product;
                                                                         } else if($result == "C"){
-                                                                            $product = floatval($semester["credit"]) * 3;
+                                                                            $product = floatval($course["credit"]) * 3;
                                                                             $total_result += $product;
                                                                         } else if($result == "D"){
-                                                                            $product = floatval($semester["credit"]) * 2;
+                                                                            $product = floatval($course["credit"]) * 2;
                                                                             $total_result += $product;
                                                                         } else if($result == "E"){
-                                                                            $product = floatval($semester["credit"]) * 1;
+                                                                            $product = floatval($course["credit"]) * 1;
                                                                             $total_result += $product;
                                                                         } else if($result == "F"){
-                                                                            $product = floatval($semester["credit"]) * 0;
+                                                                            $product = floatval($course["credit"]) * 0;
                                                                             $total_result += $product;
                                                                         }
                                                                     }
@@ -210,27 +228,36 @@ require_once "controllers/user.php";
                                                                     $total_result = 0;
 
                                                                     foreach($second_level_first_semester as $semester){
-                                                                        $total_credit += floatval($semester["credit"]);
+
+                                                                        $course_id = $semester["course_id"];
+
+                                                                        $sql = "SELECT * FROM courses WHERE course_id = ? LIMIT 1";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bind_param("s", $course_id);
+                                                                        $stmt->execute();
+                                                                        $course = $stmt->get_result()->fetch_assoc();
+
+                                                                        $total_credit += floatval($course["credit"]);
 
                                                                         $result = $semester["result"];
 
                                                                         if($result == "A"){
-                                                                            $product = floatval($semester["credit"]) * 5;
+                                                                            $product = floatval($course["credit"]) * 5;
                                                                             $total_result += $product;
                                                                         } else if($result == "B"){
-                                                                            $product = floatval($semester["credit"]) * 4;
+                                                                            $product = floatval($course["credit"]) * 4;
                                                                             $total_result += $product;
                                                                         } else if($result == "C"){
-                                                                            $product = floatval($semester["credit"]) * 3;
+                                                                            $product = floatval($course["credit"]) * 3;
                                                                             $total_result += $product;
                                                                         } else if($result == "D"){
-                                                                            $product = floatval($semester["credit"]) * 2;
+                                                                            $product = floatval($course["credit"]) * 2;
                                                                             $total_result += $product;
                                                                         } else if($result == "E"){
-                                                                            $product = floatval($semester["credit"]) * 1;
+                                                                            $product = floatval($course["credit"]) * 1;
                                                                             $total_result += $product;
                                                                         } else if($result == "F"){
-                                                                            $product = floatval($semester["credit"]) * 0;
+                                                                            $product = floatval($course["credit"]) * 0;
                                                                             $total_result += $product;
                                                                         }
                                                                     }
@@ -255,27 +282,36 @@ require_once "controllers/user.php";
                                                                     $total_result = 0;
 
                                                                     foreach($second_level_second_semester as $semester){
-                                                                        $total_credit += floatval($semester["credit"]);
+
+                                                                        $course_id = $semester["course_id"];
+
+                                                                        $sql = "SELECT * FROM courses WHERE course_id = ? LIMIT 1";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bind_param("s", $course_id);
+                                                                        $stmt->execute();
+                                                                        $course = $stmt->get_result()->fetch_assoc();
+
+                                                                        $total_credit += floatval($course["credit"]);
 
                                                                         $result = $semester["result"];
 
                                                                         if($result == "A"){
-                                                                            $product = floatval($semester["credit"]) * 5;
+                                                                            $product = floatval($course["credit"]) * 5;
                                                                             $total_result += $product;
                                                                         } else if($result == "B"){
-                                                                            $product = floatval($semester["credit"]) * 4;
+                                                                            $product = floatval($course["credit"]) * 4;
                                                                             $total_result += $product;
                                                                         } else if($result == "C"){
-                                                                            $product = floatval($semester["credit"]) * 3;
+                                                                            $product = floatval($course["credit"]) * 3;
                                                                             $total_result += $product;
                                                                         } else if($result == "D"){
-                                                                            $product = floatval($semester["credit"]) * 2;
+                                                                            $product = floatval($course["credit"]) * 2;
                                                                             $total_result += $product;
                                                                         } else if($result == "E"){
-                                                                            $product = floatval($semester["credit"]) * 1;
+                                                                            $product = floatval($course["credit"]) * 1;
                                                                             $total_result += $product;
                                                                         } else if($result == "F"){
-                                                                            $product = floatval($semester["credit"]) * 0;
+                                                                            $product = floatval($course["credit"]) * 0;
                                                                             $total_result += $product;
                                                                         }
                                                                     }
@@ -305,7 +341,7 @@ require_once "controllers/user.php";
                                                         $third_level_result = 0;
                                                         ?>
                                                         <tr>
-                                                            <td>100</td>
+                                                            <td>300</td>
                                                             <td>
                                                                 <?php if($third_level_first_semester->num_rows){
 
@@ -315,27 +351,36 @@ require_once "controllers/user.php";
                                                                     $total_result = 0;
 
                                                                     foreach($third_level_first_semester as $semester){
-                                                                        $total_credit += floatval($semester["credit"]);
+
+                                                                        $course_id = $semester["course_id"];
+
+                                                                        $sql = "SELECT * FROM courses WHERE course_id = ? LIMIT 1";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bind_param("s", $course_id);
+                                                                        $stmt->execute();
+                                                                        $course = $stmt->get_result()->fetch_assoc();
+
+                                                                        $total_credit += floatval($course["credit"]);
 
                                                                         $result = $semester["result"];
 
                                                                         if($result == "A"){
-                                                                            $product = floatval($semester["credit"]) * 5;
+                                                                            $product = floatval($course["credit"]) * 5;
                                                                             $total_result += $product;
                                                                         } else if($result == "B"){
-                                                                            $product = floatval($semester["credit"]) * 4;
+                                                                            $product = floatval($course["credit"]) * 4;
                                                                             $total_result += $product;
                                                                         } else if($result == "C"){
-                                                                            $product = floatval($semester["credit"]) * 3;
+                                                                            $product = floatval($course["credit"]) * 3;
                                                                             $total_result += $product;
                                                                         } else if($result == "D"){
-                                                                            $product = floatval($semester["credit"]) * 2;
+                                                                            $product = floatval($course["credit"]) * 2;
                                                                             $total_result += $product;
                                                                         } else if($result == "E"){
-                                                                            $product = floatval($semester["credit"]) * 1;
+                                                                            $product = floatval($course["credit"]) * 1;
                                                                             $total_result += $product;
                                                                         } else if($result == "F"){
-                                                                            $product = floatval($semester["credit"]) * 0;
+                                                                            $product = floatval($course["credit"]) * 0;
                                                                             $total_result += $product;
                                                                         }
                                                                     }
@@ -360,27 +405,36 @@ require_once "controllers/user.php";
                                                                     $total_result = 0;
 
                                                                     foreach($third_level_second_semester as $semester){
-                                                                        $total_credit += floatval($semester["credit"]);
+
+                                                                        $course_id = $semester["course_id"];
+
+                                                                        $sql = "SELECT * FROM courses WHERE course_id = ? LIMIT 1";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bind_param("s", $course_id);
+                                                                        $stmt->execute();
+                                                                        $course = $stmt->get_result()->fetch_assoc();
+
+                                                                        $total_credit += floatval($course["credit"]);
 
                                                                         $result = $semester["result"];
 
                                                                         if($result == "A"){
-                                                                            $product = floatval($semester["credit"]) * 5;
+                                                                            $product = floatval($course["credit"]) * 5;
                                                                             $total_result += $product;
                                                                         } else if($result == "B"){
-                                                                            $product = floatval($semester["credit"]) * 4;
+                                                                            $product = floatval($course["credit"]) * 4;
                                                                             $total_result += $product;
                                                                         } else if($result == "C"){
-                                                                            $product = floatval($semester["credit"]) * 3;
+                                                                            $product = floatval($course["credit"]) * 3;
                                                                             $total_result += $product;
                                                                         } else if($result == "D"){
-                                                                            $product = floatval($semester["credit"]) * 2;
+                                                                            $product = floatval($course["credit"]) * 2;
                                                                             $total_result += $product;
                                                                         } else if($result == "E"){
-                                                                            $product = floatval($semester["credit"]) * 1;
+                                                                            $product = floatval($course["credit"]) * 1;
                                                                             $total_result += $product;
                                                                         } else if($result == "F"){
-                                                                            $product = floatval($semester["credit"]) * 0;
+                                                                            $product = floatval($course["credit"]) * 0;
                                                                             $total_result += $product;
                                                                         }
                                                                     }
@@ -410,7 +464,7 @@ require_once "controllers/user.php";
                                                         $fourth_level_result = 0;
                                                         ?>
                                                         <tr>
-                                                            <td>100</td>
+                                                            <td>400</td>
                                                             <td>
                                                                 <?php if($fourth_level_first_semester->num_rows){
 
@@ -420,27 +474,36 @@ require_once "controllers/user.php";
                                                                     $total_result = 0;
 
                                                                     foreach($fourth_level_first_semester as $semester){
-                                                                        $total_credit += floatval($semester["credit"]);
+
+                                                                        $course_id = $semester["course_id"];
+
+                                                                        $sql = "SELECT * FROM courses WHERE course_id = ? LIMIT 1";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bind_param("s", $course_id);
+                                                                        $stmt->execute();
+                                                                        $course = $stmt->get_result()->fetch_assoc();
+
+                                                                        $total_credit += floatval($course["credit"]);
 
                                                                         $result = $semester["result"];
 
                                                                         if($result == "A"){
-                                                                            $product = floatval($semester["credit"]) * 5;
+                                                                            $product = floatval($course["credit"]) * 5;
                                                                             $total_result += $product;
                                                                         } else if($result == "B"){
-                                                                            $product = floatval($semester["credit"]) * 4;
+                                                                            $product = floatval($course["credit"]) * 4;
                                                                             $total_result += $product;
                                                                         } else if($result == "C"){
-                                                                            $product = floatval($semester["credit"]) * 3;
+                                                                            $product = floatval($course["credit"]) * 3;
                                                                             $total_result += $product;
                                                                         } else if($result == "D"){
-                                                                            $product = floatval($semester["credit"]) * 2;
+                                                                            $product = floatval($course["credit"]) * 2;
                                                                             $total_result += $product;
                                                                         } else if($result == "E"){
-                                                                            $product = floatval($semester["credit"]) * 1;
+                                                                            $product = floatval($course["credit"]) * 1;
                                                                             $total_result += $product;
                                                                         } else if($result == "F"){
-                                                                            $product = floatval($semester["credit"]) * 0;
+                                                                            $product = floatval($course["credit"]) * 0;
                                                                             $total_result += $product;
                                                                         }
                                                                     }
@@ -465,27 +528,36 @@ require_once "controllers/user.php";
                                                                     $total_result = 0;
 
                                                                     foreach($fourth_level_second_semester as $semester){
-                                                                        $total_credit += floatval($semester["credit"]);
+
+                                                                        $course_id = $semester["course_id"];
+
+                                                                        $sql = "SELECT * FROM courses WHERE course_id = ? LIMIT 1";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bind_param("s", $course_id);
+                                                                        $stmt->execute();
+                                                                        $course = $stmt->get_result()->fetch_assoc();
+                                                                        
+                                                                        $total_credit += floatval($course["credit"]);
 
                                                                         $result = $semester["result"];
 
                                                                         if($result == "A"){
-                                                                            $product = floatval($semester["credit"]) * 5;
+                                                                            $product = floatval($course["credit"]) * 5;
                                                                             $total_result += $product;
                                                                         } else if($result == "B"){
-                                                                            $product = floatval($semester["credit"]) * 4;
+                                                                            $product = floatval($course["credit"]) * 4;
                                                                             $total_result += $product;
                                                                         } else if($result == "C"){
-                                                                            $product = floatval($semester["credit"]) * 3;
+                                                                            $product = floatval($course["credit"]) * 3;
                                                                             $total_result += $product;
                                                                         } else if($result == "D"){
-                                                                            $product = floatval($semester["credit"]) * 2;
+                                                                            $product = floatval($course["credit"]) * 2;
                                                                             $total_result += $product;
                                                                         } else if($result == "E"){
-                                                                            $product = floatval($semester["credit"]) * 1;
+                                                                            $product = floatval($course["credit"]) * 1;
                                                                             $total_result += $product;
                                                                         } else if($result == "F"){
-                                                                            $product = floatval($semester["credit"]) * 0;
+                                                                            $product = floatval($course["credit"]) * 0;
                                                                             $total_result += $product;
                                                                         }
                                                                     }
@@ -515,7 +587,7 @@ require_once "controllers/user.php";
                                                         $fifth_level_result = 0;
                                                         ?>
                                                         <tr>
-                                                            <td>100</td>
+                                                            <td>500</td>
                                                             <td>
                                                                 <?php if($fifth_level_first_semester->num_rows){
 
@@ -525,27 +597,36 @@ require_once "controllers/user.php";
                                                                     $total_result = 0;
 
                                                                     foreach($fifth_level_first_semester as $semester){
-                                                                        $total_credit += floatval($semester["credit"]);
+
+                                                                        $course_id = $semester["course_id"];
+
+                                                                        $sql = "SELECT * FROM courses WHERE course_id = ? LIMIT 1";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bind_param("s", $course_id);
+                                                                        $stmt->execute();
+                                                                        $course = $stmt->get_result()->fetch_assoc();
+
+                                                                        $total_credit += floatval($course["credit"]);
 
                                                                         $result = $semester["result"];
 
                                                                         if($result == "A"){
-                                                                            $product = floatval($semester["credit"]) * 5;
+                                                                            $product = floatval($course["credit"]) * 5;
                                                                             $total_result += $product;
                                                                         } else if($result == "B"){
-                                                                            $product = floatval($semester["credit"]) * 4;
+                                                                            $product = floatval($course["credit"]) * 4;
                                                                             $total_result += $product;
                                                                         } else if($result == "C"){
-                                                                            $product = floatval($semester["credit"]) * 3;
+                                                                            $product = floatval($course["credit"]) * 3;
                                                                             $total_result += $product;
                                                                         } else if($result == "D"){
-                                                                            $product = floatval($semester["credit"]) * 2;
+                                                                            $product = floatval($course["credit"]) * 2;
                                                                             $total_result += $product;
                                                                         } else if($result == "E"){
-                                                                            $product = floatval($semester["credit"]) * 1;
+                                                                            $product = floatval($course["credit"]) * 1;
                                                                             $total_result += $product;
                                                                         } else if($result == "F"){
-                                                                            $product = floatval($semester["credit"]) * 0;
+                                                                            $product = floatval($course["credit"]) * 0;
                                                                             $total_result += $product;
                                                                         }
                                                                     }
@@ -570,27 +651,36 @@ require_once "controllers/user.php";
                                                                     $total_result = 0;
 
                                                                     foreach($fifth_level_second_semester as $semester){
-                                                                        $total_credit += floatval($semester["credit"]);
+
+                                                                        $course_id = $semester["course_id"];
+
+                                                                        $sql = "SELECT * FROM courses WHERE course_id = ? LIMIT 1";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bind_param("s", $course_id);
+                                                                        $stmt->execute();
+                                                                        $course = $stmt->get_result()->fetch_assoc();
+
+                                                                        $total_credit += floatval($course["credit"]);
 
                                                                         $result = $semester["result"];
 
                                                                         if($result == "A"){
-                                                                            $product = floatval($semester["credit"]) * 5;
+                                                                            $product = floatval($course["credit"]) * 5;
                                                                             $total_result += $product;
                                                                         } else if($result == "B"){
-                                                                            $product = floatval($semester["credit"]) * 4;
+                                                                            $product = floatval($course["credit"]) * 4;
                                                                             $total_result += $product;
                                                                         } else if($result == "C"){
-                                                                            $product = floatval($semester["credit"]) * 3;
+                                                                            $product = floatval($course["credit"]) * 3;
                                                                             $total_result += $product;
                                                                         } else if($result == "D"){
-                                                                            $product = floatval($semester["credit"]) * 2;
+                                                                            $product = floatval($course["credit"]) * 2;
                                                                             $total_result += $product;
                                                                         } else if($result == "E"){
-                                                                            $product = floatval($semester["credit"]) * 1;
+                                                                            $product = floatval($course["credit"]) * 1;
                                                                             $total_result += $product;
                                                                         } else if($result == "F"){
-                                                                            $product = floatval($semester["credit"]) * 0;
+                                                                            $product = floatval($course["credit"]) * 0;
                                                                             $total_result += $product;
                                                                         }
                                                                     }
