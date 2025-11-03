@@ -113,8 +113,26 @@ foreach($_POST["course"] as $course){
 if(preg_match('/poor performance|failed/i', $response)){
 
     $needed = number_format(5.00 - (floatval($gpa_sum) / floatval($credit_sum)), 2);
+
+    $detail = "Result Successfully Submitted. ". $response. ". You need to have a GPA of ". $needed ." to improve your performance. Try Better.";
+
+    $time = time();
+
+    $sql = "INSERT INTO `logs`(`user_id`, `detail`, `log_time`) VALUES (?,?,?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $user_id, $detail, $time);
+    $stmt->execute();
     
-    echo json_encode(["status" => "success","message" => "Result Successfully Submitted. ". $response. ". You need to have a GPA of ". $needed ." to improve your performance. Try Better."]);
+    echo json_encode(["status" => "success","message" => $detail]);
 } else {
-    echo json_encode(["status" => "success","message" => "Result Successfully Submitted. Good Job. Keep it up and Graduate with a Good Result"]);
+    
+    $detail = "Result Successfully Submitted. Good Job. Keep it up and Graduate with a Good Result";
+    $time = time();
+
+    $sql = "INSERT INTO `logs`(`user_id`, `detail`, `log_time`) VALUES (?,?,?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $user_id, $detail, $time);
+    $stmt->execute();
+
+    echo json_encode(["status" => "success","message" => $detail]);
 }

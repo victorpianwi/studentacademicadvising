@@ -203,6 +203,18 @@ if($current_level->num_rows){
                                     </div>
                                 </div>
                             </div><!-- Column -->
+                            <?php if($logs->num_rows){
+                                $logs = $logs->fetch_assoc();
+                                ?>
+                                <div class="col-md-6 col-lg-6 col-xl-4">
+                                    <div class="card m-b-30">
+                                        <div class="card-body">
+                                            <h5 class="mt-0 round-inner">Advice</h5>
+                                            <p class="mb-0 text-muted"><?= $logs["detail"]?></p>
+                                        </div>
+                                    </div>
+                                </div><!-- Column -->
+                            <?php } ?>
                         </div>
                     </div><!-- container -->
                 </div><!-- Page content Wrapper -->

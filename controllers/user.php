@@ -159,4 +159,10 @@ $stmt->bind_param("ssss", $status, $user_id, $level, $semester);
 $stmt->execute();
 $fifth_level_second_semester = $stmt->get_result();
 
+$sql = "SELECT * FROM `logs` WHERE user_id = ? ORDER BY log_time DESC LIMIT 1";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $user_id);
+$stmt->execute();
+$logs = $stmt->get_result();
+
 ?>
